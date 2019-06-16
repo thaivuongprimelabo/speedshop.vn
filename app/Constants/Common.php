@@ -42,10 +42,10 @@ class Common {
     CONST IP_ADDRESS = 'ip_address';
     
     CONST TABLE_LIST = [
-        self::VENDORS, self::CATEGORIES, self::BANNERS,
+        self::USERS, self::VENDORS, self::CATEGORIES, self::BANNERS,
         self::CONTACTS, self::POSTS, self::PRODUCTS,
         self::IMAGES_PRODUCT, self::ORDERS, self::ORDER_DETAILS,
-        self::PRODUCT_DETAILS, self::PRODUCT_DETAIL_GROUPS, self::POST_GROUPS
+        self::PRODUCT_DETAILS, self::PRODUCT_DETAIL_GROUPS, self::POST_GROUPS, self::IP_ADDRESS
     ];
     
     /** Role **/
@@ -56,13 +56,13 @@ class Common {
     /** Mail **/
     CONST FROM_MAIL = 'thaivuong1503@gmail.com';
     CONST FROM_NAME = 'System';
-    CONST SUBJECT = 'ã€�CPanelã€‘ Test send mail';
+    CONST SUBJECT = '【CPanel】 Test send mail';
     CONST TEMPLATE = 'auth.emails.template';
     
     /** Size */
     CONST UPLOAD_SIZE_LIMIT = ['51200', '102400', '204800', '307200' ,'512000', '1048576'];
     
-    CONST CURRENCY = 'â‚«';
+    CONST CURRENCY = '₫';
     
     public static function getValue($key) {
         return constant('Common::' . $key);

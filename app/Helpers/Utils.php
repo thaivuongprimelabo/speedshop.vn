@@ -32,6 +32,8 @@ class Utils {
     
     public static function getImageLink($image = '') {
         
+        $uploadFolder = UploadPath::UPLOAD;
+        
         if(strpos($image, ',') !== FALSE) {
             $arrImage = explode(',', $image);
             $image = $arrImage[0];
@@ -41,11 +43,12 @@ class Utils {
             return $image;
         }
         
-        $uploadFolder = UploadPath::UPLOAD;
         if(!self::blank($image)) {
-//             if(!self::blank($thumb)) {
-//                 return url($uploadFolder . $thumb);
-//             }
+            
+            if(!file_exists(public_path($uploadFolder . $image))) {
+                return url($uploadFolder . Common::NO_IMAGE_FOUND);
+            }
+            
             return url($uploadFolder . $image);
         } else {
             return '';
@@ -1267,8 +1270,8 @@ class Utils {
                 $preview_control_id = 'preview_' . $key;
                 $element_html .= '<div>';
                 $element_html .= '<input type="file" class="form-control upload-simple" name="' . $key . '" data-preview-control="' . $preview_control_id . '" data-limit-upload="' . $limit_upload . '" />';
-                $style = 'height: ' . $split[1] . 'px';
-                $element_html .= '<div class="preview_area" style="width:' . $split[0] . 'px;position:relative">';
+                $style = 'width: ' . $split[0] . 'px;height: ' . $split[1] . 'px';
+                $element_html .= '<div class="preview_area" style="' . $style . ';position:relative">';
                 $element_html .= '<span class="spinner_preview" style="display:none"><i class="fa fa-circle-o-notch fa-spin"></i> ' . trans('auth.upload_check_txt') . '</span>';
                 if(!self::blank($element_value)) {
                     $element_html .= '<a href="javascript:void(0)" class="remove-img-simple" style="position:absolute; top:15px; right:-18px"><i class="fa fa-trash" style="font-size:18px;"></i></a>';
