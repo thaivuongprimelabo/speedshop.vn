@@ -1,0 +1,144 @@
+/*---- 001_login.html ----*/
+.login-frm {
+    width: 520px;
+}
+.error-txt {
+    color: #ff0000;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+}
+.box-note span {
+    display: inline-block;
+    margin: 0 20px;
+}
+.title-01 {
+    text-align: center;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .login-frm {
+        width: 90%;
+    }
+}
+/*---- End 001_login.html ----*/
+
+/*---- 102_log_detail.html ----*/
+.log-btn {
+    text-align: right;
+    width: 100%;
+}
+.log-btn .btn {
+    margin: 0 10px;
+}
+
+/*---- 099_common.html ----*/
+.wrap-cont .navbar-nav>.user-menu>.dropdown-menu {
+    width: auto;
+}
+/*---- End 099_common.html ----*/
+
+/*---- 105_setting.html ----*/
+.w70 { 
+    width: 70%;
+}
+.mr10 {
+    margin-right: 10px;
+}
+.box-w80 { 
+    width: 80%;
+}
+.box-row {
+    margin-bottom: 15px;
+}
+.box_inline {
+    display: inline-block;
+}
+@media (max-width: 768px) {
+  .box-w80 { 
+        width: 100%!important;
+    }
+    .w70 {
+        width: 100%;
+    }
+}
+/*---- End 105_setting.html ----*/
+
+/*---- 103_user management.html ----*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 53px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 50%;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #3c8dbc;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(21px);
+  -ms-transform: translateX(21px);
+  transform: translateX(21px);
+}
+
+.w30 {
+    width: 30%;
+}
+.box-bor {
+    border-bottom: 1px solid #ccc;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.box-bor:last-child {
+    border-bottom: none;
+}
+.box-bor .table th{
+    text-align: right;
+    vertical-align: middle;
+    width: 20%;
+    padding-right: 40px;
+}
+@media (max-width: 768px) {
+    .box-bor .table th{
+        width: 30%;
+        padding-right: 2%;
+    }
+    .w30 {
+        width: 100%;
+    }
+}
+/*---- End 103_user management.html ----*/

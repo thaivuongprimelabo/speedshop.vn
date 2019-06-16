@@ -1,0 +1,49 @@
+.active-item-sidebar {
+	color:#f0f0f0 !important;	
+}
+.image-url {
+	width:85%;
+	margin-top: 5px;
+}
+
+.hide_element {
+	display: none;
+}
+
+#message {
+    position: fixed;
+    top: 0;
+    left:50%;
+	z-index: 9999;
+    width:auto;
+}
+#inner-message {
+    margin: 0 auto;
+}
+.mb-1 {
+	margin-bottom: 10px !important;
+}
+
+.mb-2 {
+	margin-bottom: 20px !important;
+}
+
+.mb-3 {
+	margin-bottom: 30px !important;
+}
+
+.mt-1 {
+	margin-top: 10px !important;
+}
+
+.mt-2 {
+	margin-top: 20px !important;
+}
+
+.mt-3 {
+	margin-top: 30px !important;
+}
+
+.user-panel>.image>img {
+	height:45px !important;
+}
