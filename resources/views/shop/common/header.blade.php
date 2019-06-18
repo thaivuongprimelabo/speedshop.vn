@@ -70,7 +70,7 @@
 					
 					<a href="/" class="logo-wrapper ">
 						@if(!Utils::blank($config['web_logo']))					
-						<img src="{{ Utils::getImageLink($config['web_logo']) }}" alt="{{ $config['web_logo'] }}">
+						<img src="{{ Utils::getImageLink($config['web_logo']) }}" alt="{{ $config['web_logo'] }}" class="img-responsive">
 						@endif					
 					</a>
 				</div>

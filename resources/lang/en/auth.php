@@ -334,12 +334,14 @@ $auth = [
             'link' => [
                 'type' => 'link_to_post',
                 'text' => 'Đường dẫn',
-                'container_id' => 'use_image'
+                'container_id' => 'use_image',
+                'maxlength' => \App\Constants\Common::LINK_MAXLENGTH
             ],
             'youtube_id' => [
                 'type' => 'text',
                 'text' => 'Youtube URL',
-                'container_id' => 'use_youtube'
+                'container_id' => 'use_youtube',
+                'maxlength' => \App\Constants\Common::LINK_MAXLENGTH
             ],
             'preview_youtube' => [
                 'type' => 'youtube_preview',
@@ -353,7 +355,6 @@ $auth = [
             ]
         ],
         'rules' => [
-            'upload_banner' => 'required',
             'link' => 'max:' . \App\Constants\Common::LINK_MAXLENGTH,
             'youtube_id' => 'max:' . \App\Constants\Common::LINK_MAXLENGTH
         ]
@@ -725,11 +726,11 @@ $auth = [
                 'type' => 'text',
                 'placeholder' => 'Lọc theo mã đơn hàng'
             ],
-            'name' => [
+            'customer_name' => [
                 'type' => 'text',
                 'placeholder' => 'Lọc theo tên khách hàng'
             ],
-            'phone' => [
+            'customer_phone' => [
                 'type' => 'text',
                 'placeholder' => 'Lọc theo số điện thoại'
             ],
@@ -807,6 +808,14 @@ $auth = [
                     'text' => 'Web name',
                     'maxlength' => 200
                 ],
+                'web_description' => [
+                    'type' => 'textarea',
+                    'text' => 'Web Description'
+                ],
+                'web_keywords' => [
+                    'type' => 'textarea',
+                    'text' => 'Web Keywords'
+                ],
                 'upload_web_logo' => [
                     'type' => 'file_simple',
                     'text' => 'Web logo'
@@ -846,14 +855,6 @@ $auth = [
                 'freeship' => [
                     'type' => 'textarea',
                     'text' => 'Miễn phí vận chuyển',
-                ],
-                'web_description' => [
-                    'type' => 'textarea',
-                    'text' => 'SEO Description'
-                ],
-                'web_keywords' => [
-                    'type' => 'textarea',
-                    'text' => 'SEO Keywords'
                 ],
                 'footer_text' => [
                     'type' => 'editor',
@@ -1084,7 +1085,7 @@ $auth = [
                     'maxlength' => \App\Constants\Common::NAME_MAXLENGTH
                 ],
                 'price' => [
-                    'type' => 'text',
+                    'type' => 'currency',
                     'text' => 'Giá bán',
                     'maxlength' => \App\Constants\Common::PRICE_PRODUCT_MAXLENGTH
                 ],
@@ -1511,7 +1512,7 @@ $auth = [
         ]
     ],
     'product_type' => $productType,
-    'text_image_small' => ' (Tập tin *.jpg, *.jpeg, *.gif, *.png.Tối đa :limit_upload)',
+    'text_image_small' => ' (Tập tin *.jpg, *.jpeg, *.gif, *.png.Tối đa :limit_upload. Kích thước :size)',
     'select_empty_text' => 'Vui lòng chọn',
     'price_empty_text' => 'Liên hệ',
     'preview_image' => 'Hình đang sử dụng:',

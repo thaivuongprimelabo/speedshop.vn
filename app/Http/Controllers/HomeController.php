@@ -55,7 +55,7 @@ class HomeController extends AppController
         $this->output['posts'] = $posts;
         
         $this->setSEO([
-            'title' => trans('shop.main_nav.home.text'),
+            'title' => $this->output['config']['web_description'],
             'summary' => $this->output['config']['web_description'],
             'keywords' => [$this->output['config']['web_name']],
             'link' => route('home'),

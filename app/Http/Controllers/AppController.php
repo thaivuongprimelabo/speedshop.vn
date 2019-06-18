@@ -107,8 +107,8 @@ class AppController extends Controller
         $type = isset($data['type']) && !Utils::blank($data['type']) ? $data['type'] : 'product';
         $image = isset($data['image']) && !Utils::blank($data['image']) && strpos($data['image'], Common::NO_IMAGE_FOUND) === FALSE  ? $data['image'] : Utils::getImageLink($this->output['config']['web_banner']);
         
-        SEOMeta::setTitleDefault($this->output['config']['web_name']);
-        SEOMeta::setTitle($title);
+        SEOMeta::setTitleDefault($title);
+        SEOMeta::setTitle($this->output['config']['web_name']);
         SEOMeta::setDescription($summary);
         SEOMeta::addMeta('article:section', $section, 'property');
         SEOMeta::addKeyword($keywords);

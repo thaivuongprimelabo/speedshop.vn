@@ -113,7 +113,7 @@ class AppController extends Controller
             foreach($search_condition as $key=>$con) {
                 $value = $data[$key];
                 if(!Utils::blank($value)) {
-                    if($key == 'name') {
+                    if($key == 'name' || $key == 'customer_name') {
                         $wheres[] = [$key, 'LIKE', '%' . $value . '%'];
                     }elseif($key == 'created_at') { 
                         $value = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');

@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	{!! SEO::generate() !!}
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	{!! SEO::generate() !!}
+	
 	<meta property="fb:app_id" content="135671569954053" />
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -42,14 +43,14 @@
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=135671569954053&autoLogAppEvents=1"></script>
 	
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139235768-1"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139235768-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
       gtag('config', 'UA-139235768-1');
-    </script>
+    </script> -->
 
 
 </head>

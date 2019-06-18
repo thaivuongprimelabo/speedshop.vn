@@ -9,7 +9,7 @@
     					<div class="item">
     						@if($banner->select_type == 'use_image')
     						<a href="{{ $banner->link }}" class="clearfix" target="_blank">
-    							<img src="{{ Utils::getImageLink($banner->banner) }}" class="img-thumbnail" style="width:{{ $config['banners_width'] }}px; height:{{ $config['banners_height'] }}px" />
+    							<img src="{{ Utils::getImageLink($banner->banner) }}" class="img-thumbnail img-responsive"  />
     						</a>
     						@else
     						<iframe src="https://www.youtube.com/embed/{{ $banner->youtube_id }}" frameborder="0" allowfullscreen style="width:{{ $config['banners_width'] }}px; height:{{ $config['banners_height'] }}px"></iframe>

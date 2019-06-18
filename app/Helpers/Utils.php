@@ -1266,7 +1266,7 @@ class Utils {
                 }
                 
                 $split = explode('x', $image_size);
-                $element_html .= $label . trans('auth.text_image_small',['limit_upload' => self::formatMemory($limit_upload)]);
+                $element_html .= $label . trans('auth.text_image_small',['limit_upload' => self::formatMemory($limit_upload), 'size' => $image_size]);
                 $preview_control_id = 'preview_' . $key;
                 $element_html .= '<div>';
                 $element_html .= '<input type="file" class="form-control upload-simple" name="' . $key . '" data-preview-control="' . $preview_control_id . '" data-limit-upload="' . $limit_upload . '" />';
