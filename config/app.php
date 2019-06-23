@@ -489,6 +489,7 @@ return [
         'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
 
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+	'FormGenerate' => App\Helpers\FormGenerate::class,
 
     ],
 

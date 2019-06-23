@@ -2,22 +2,13 @@
 
 @section('content')
 @include('auth.common.content_header')
+@php $form = FormGenerate::getInstance($config); @endphp
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
 			<form role="form" id="submit_form" action="?" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
-    			{!! Utils::generateForm($config, $name, $data) !!}
-    			@if($name == 'orders')
-    			<div class="box box-primary">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">{{ isset($forms['text']) ? $forms['text'] : trans('auth.edit_box_title') }}</h3>
-                    </div>
-                	<div class="box-body">
-                		{!! Utils::generateList($config, $name, $orderDetails, $data, 'table_product_header') !!}
-                	</div>
-                </div>
-                @endif
+    			{!! $form->makeForm($name, $data) !!}
             </form>
 		</div>
 	</div>
@@ -25,7 +16,7 @@
 @endsection
 @section('script')
 <script type="text/javascript">
-	var validateObject = {!! Utils::generateValidation($name, $rules, $data) !!}
+	var validateObject = JSON.parse('{!! $form->makeValidation($name, $rules, $data) !!}');
     var validatorEventSetting = $("#submit_form").validate({
         ignore: '',
     	onfocusout: false,

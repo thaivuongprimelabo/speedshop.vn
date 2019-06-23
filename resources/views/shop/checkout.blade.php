@@ -373,25 +373,36 @@
 		});
 
 	    $('#checkout_province').change(function(e) {
-		    var shipFee = Number($('#checkout_province option:selected').attr('data-ship-fee'));
-			var cityId = $(this).val();
+
+	    	var cityId = $(this).val();
 			$.get('{{ route('loadDistrict') }}?city_id=' + cityId, function( data ) {
 				   $('#checkout_district').html(data);
 			});
+			
+	    	var sub_total = Number($('#sub_total').attr('data-total'));
+	    	if(sub_total > {{ $config['freeship_money'] }}) {
+				return false;
+	    	}
+	    	
+		    var shipFee = Number($('#checkout_province option:selected').attr('data-ship-fee'));
 			$('#ship_fee').attr('data-ship-fee', shipFee);
 			$('#ship_fee').html(formatCurrency(shipFee, '.' , '.'));
 
-			var sub_total = Number($('#sub_total').attr('data-total'));
 			var total = sub_total + shipFee;
 			$('#total').html(formatCurrency(total, '.' , '.'));
 	    });
 
 	    $('#checkout_district').change(function(e) {
+	    	var sub_total = Number($('#sub_total').attr('data-total'));
+
+	    	if(sub_total > {{ $config['freeship_money'] }}) {
+				return false;
+	    	}
+	    	
 		    var shipFee = Number($('#checkout_district option:selected').attr('data-ship-fee'));
 			$('#ship_fee').attr('data-ship-fee', shipFee);
 			$('#ship_fee').html(formatCurrency(shipFee, '.' , '.'));
 
-			var sub_total = Number($('#sub_total').attr('data-total'));
 			var total = sub_total + shipFee;
 			$('#total').html(formatCurrency(total, '.' , '.'));
 	    });

@@ -8,9 +8,9 @@ CKEDITOR.editorConfig = function( config ) {
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 	// The toolbar groups arrangement, optimized for two toolbar rows.
-	config.extraPlugins = 'youtube,justify';
+	config.extraPlugins = 'youtube,justify,smiley';
 	config.toolbar = [
-		{ items: [ 'Bold', 'Italic','NumberedList', 'BulletedList', 'Link', 'Unlink', 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
+		{ items: [ 'Bold', 'Italic','NumberedList', 'BulletedList', 'Link', 'Unlink', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'Smiley', 'SpecialChar' ] },
 //		{ items: ['Image', 'Flash', 'Table', 'Youtube']}
 	];
 

@@ -130,6 +130,7 @@ class ConfigController extends AppController
             
             $data->web_working_time = Utils::cnvNull($request->web_working_time, '');
             $data->freeship = Utils::cnvNull($request->freeship, '');
+            $data->freeship_money = Utils::cnvNull($request->freeship_money, '');
             $data->footer_text = Utils::cnvNull($request->footer_text, '');
             $data->facebook_fanpage = Utils::cnvNull($request->facebook_fanpage, '');
             $data->youtube_channel = Utils::cnvNull($request->youtube_channel, '');

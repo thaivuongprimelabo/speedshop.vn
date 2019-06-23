@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-    			{!! Utils::generateForm($config, $name, $data) !!}
+    			{!! FormGenerate::getInstance($config)->makeForm($name, $data) !!}
     			</div>
             </form>
 		</div>

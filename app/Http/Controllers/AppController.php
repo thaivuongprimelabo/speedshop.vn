@@ -55,6 +55,7 @@ class AppController extends Controller
                     'web_working_time' => Utils::cnvNull($config->web_working_time, ''),
                     'web_address' => Utils::cnvNull($config->web_address, ''),
                     'freeship' => Utils::cnvNull($config->freeship, ''),
+                    'freeship_money' => Utils::cnvNull($config->freeship_money, ''),
                     'web_address_branch' => Utils::cnvNull($config->web_address_branch, ''),
                     'footer_text' => Utils::cnvNull($config->footer_text, ''),
                     'facebook_fanpage' => Utils::cnvNull($config->facebook_fanpage, ''),

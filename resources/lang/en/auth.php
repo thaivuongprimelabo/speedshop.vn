@@ -321,42 +321,46 @@ $auth = [
             ]
         ],
         'status' => 'Tất cả trạng thái',
-        'form' => [
-            'select_type' => [
-                'type' => 'radio_list',
-                'value' => $bannerType
+        'tab_form' => [
+            'use_image' => [
+                'active' => true,
+                'title' => 'Hình ảnh',
+                'upload_banner' => [
+                    'type' => 'file_simple',
+                    'text' => 'Banner',
+                    'container_id' => 'use_image'
+                ],
+                'link' => [
+                    'type' => 'link_to_post',
+                    'text' => 'Đường dẫn',
+                ],
             ],
-            'upload_banner' => [
-                'type' => 'file_simple',
-                'text' => 'Banner',
-                'container_id' => 'use_image'
-            ],
-            'link' => [
-                'type' => 'link_to_post',
-                'text' => 'Đường dẫn',
-                'container_id' => 'use_image',
-                'maxlength' => \App\Constants\Common::LINK_MAXLENGTH
-            ],
-            'youtube_id' => [
-                'type' => 'text',
-                'text' => 'Youtube URL',
-                'container_id' => 'use_youtube',
-                'maxlength' => \App\Constants\Common::LINK_MAXLENGTH
-            ],
-            'preview_youtube' => [
-                'type' => 'youtube_preview',
-                'text' => 'Preview',
-                'container_id' => 'use_youtube'
+            'use_youtube' => [
+                'title' => 'Youtube',
+                'youtube_id' => [
+                    'type' => 'text',
+                    'text' => 'Youtube URL',
+                    'container_id' => 'use_youtube'
+                ],
+                'preview_youtube' => [
+                    'type' => 'youtube_preview',
+                    'text' => 'Preview',
+                ],
             ],
             'status' => [
                 'type' => 'checkbox',
                 'text' => 'Đang hoạt động',
                 'checked' => true
+            ],
+            'select_type' => [
+                'type' => 'hidden',
+                'value' => 'use_image'
             ]
         ],
         'rules' => [
+            'upload_banner' => 'required_upload_banner:#select_type',
             'link' => 'max:' . \App\Constants\Common::LINK_MAXLENGTH,
-            'youtube_id' => 'max:' . \App\Constants\Common::LINK_MAXLENGTH
+            'youtube_id' => 'required_youtube_id:#select_type|max:' . \App\Constants\Common::LINK_MAXLENGTH
         ]
     ],
     /*------------ Contacts page ------------------- */
@@ -748,7 +752,7 @@ $auth = [
             'header' => 'Thông tin khách hàng',
             'customer_name' => [
                 'type' => 'label',
-                'text' => 'Tên khách hàng: '
+                'text' => 'Tên khách hàng:&nbsp;&nbsp;'
             ],
             'customer_email' => [
                 'type' => 'label',
@@ -756,36 +760,36 @@ $auth = [
             ],
             'customer_address' => [
                 'type' => 'label',
-                'text' => 'Địa chỉ giao hàng: '
+                'text' => 'Địa chỉ giao hàng:&nbsp;&nbsp;'
             ],
             'customer_province' => [
                 'type' => 'label',
-                'text' => 'Tỉnh/thành phố'
+                'text' => 'Tỉnh/thành phố:&nbsp;&nbsp;'
             ],
             'customer_district' => [
                 'type' => 'label',
-                'text' => 'Quận/huyện'
+                'text' => 'Quận/huyện:&nbsp;&nbsp;'
             ],
             'customer_phone' => [
                 'type' => 'label',
-                'text' => 'Số điện thoại: '
+                'text' => 'Số điện thoại:&nbsp;&nbsp;'
             ],
             'payment_method' => [
                 'type' => 'label',
-                'text' => 'Phương thức chi trả: '
+                'text' => 'Phương thức chi trả:&nbsp;&nbsp;'
             ],
             'customer_note' => [
                 'type' => 'label',
-                'text' => 'Ghi chú: '
+                'text' => 'Ghi chú:&nbsp;&nbsp;'
             ],
             'created_at' => [
                 'type' => 'label',
-                'text' => 'Ngày đặt hàng'
+                'text' => 'Ngày đặt hàng:&nbsp;&nbsp;'
             ],
             'status' => [
                 'type' => 'select',
                 'table' => 'STATUS_ORDERS',
-                'text' => 'Trạng thái đơn hàng',
+                'text' => 'Trạng thái đơn hàng:&nbsp;&nbsp;',
                 'empty_text'
             ]
         ],
@@ -853,8 +857,12 @@ $auth = [
                     'maxlength' => 40
                 ],
                 'freeship' => [
-                    'type' => 'textarea',
+                    'type' => 'text',
                     'text' => 'Miễn phí vận chuyển',
+                ],
+                'freeship_money' => [
+                    'type' => 'currency',
+                    'text' => 'Nhập số tiền (miễn phí vận chuyển)',
                 ],
                 'footer_text' => [
                     'type' => 'editor',
@@ -1112,7 +1120,7 @@ $auth = [
                     'text' => 'Hình sản phẩm',
                 ],
                 'summary' => [
-                    'type' => 'textarea',
+                    'type' => 'editor',
                     'text' => 'Mô tả',
                     'maxlength' => \App\Constants\Common::DESC_MAXLENGTH,
                 ],

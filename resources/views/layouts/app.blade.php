@@ -216,6 +216,11 @@
       	format: 'dd/mm/yyyy'
     })
     
+    $('.datepicker').datepicker({
+      	autoclose: true,
+      	format: 'dd/mm/yyyy'
+    })
+    
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
       radioClass: 'iradio_square-blue',
@@ -370,15 +375,18 @@
         $('#youtube_preview').html(iframe);
 	});
 
-	$(document).on('keyup', '#price', function(e) {
-		$('#format_currency strong small i').html(formatCurrency($(this).val(), '.', '.'));
+	$(document).on('keyup', '.textbox_currency', function(e) {
+		$(this).parent().parent().find('.format_currency strong small i').html(formatCurrency($(this).val(), '.', '.'));
 
-		var price = Number($(this).val());
-		var discount = Number($('#discount').val());
-		if(discount && price) {
-			var discount_money = price - (price * (discount / 100));
-			$('#format_discount strong small i').html(formatCurrency(discount_money, '.', '.'));
+		if($('#discount').length) {
+			var price = Number($(this).val());
+			var discount = Number($('#discount').val());
+			if(discount && price) {
+				var discount_money = price - (price * (discount / 100));
+				$('#format_discount strong small i').html(formatCurrency(discount_money, '.', '.'));
+			}
 		}
+
 	});
 
 	$(document).on('mouseup keyup', '#discount', function(e) {
@@ -604,6 +612,13 @@
 
 		if(tp) {
 			$('.item' + $(this).attr('data-id')).find('input').val(value);
+		}
+	});
+
+	$(document).on('click', '.nav-tabs li', function(e) {
+		var data_tab = $(this).attr('data-tab');
+		if($('#select_type').length) {
+			$('#select_type').val(data_tab);
 		}
 	});
 
